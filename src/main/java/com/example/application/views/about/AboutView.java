@@ -1,5 +1,7 @@
 package com.example.application.views.about;
 
+import com.example.application.views.GetJson;
+import com.google.gson.Gson;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.router.Route;
@@ -14,7 +16,12 @@ public class AboutView extends Div {
 
     public AboutView() {
         addClassName("about-view");
-        add(new Text("Content placeholder"));
+
+        Gson gson = new Gson();
+
+        //gson.fromJson(new GetJson().getJson());
+
+        add(new Text("111"));
     }
 
 }

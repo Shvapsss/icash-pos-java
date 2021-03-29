@@ -72,8 +72,8 @@ public class MainView extends AppLayout {
         HorizontalLayout logoLayout = new HorizontalLayout();
         logoLayout.setId("logo");
         logoLayout.setAlignItems(FlexComponent.Alignment.CENTER);
-        logoLayout.add(new Image("images/logo.png", "iCASH POS logo"));
-        logoLayout.add(new H1("iCASH POS"));
+        logoLayout.add(new Image("images/ilogo.png", "iCASH POS logo"));
+        logoLayout.add(new H1("POS"));
         layout.add(logoLayout, menu);
         return layout;
     }
