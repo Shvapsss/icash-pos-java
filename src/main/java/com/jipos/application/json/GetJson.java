@@ -1,4 +1,4 @@
-package com.jipos.application.views;
+package com.jipos.application.json;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -6,7 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class GetJson {
-    String url = "http://10.0.0.153/api/1/getallinfo";
+    String url = "http://5.134.218.202:7374/api/1/getallinfo";
     private String result;
 
     public String getJson() {
