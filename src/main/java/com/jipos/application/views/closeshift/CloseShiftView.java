@@ -1,6 +1,9 @@
 package com.jipos.application.views.closeshift;
 
+import com.google.gson.Gson;
+import com.jipos.application.json.ApiConnecting;
 import com.jipos.application.views.main.MainView;
+import com.jipos.application.views.openshift.OpenShift;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -14,18 +17,31 @@ import com.vaadin.flow.component.dependency.CssImport;
 @CssImport("./views/закрытьсмену/закрытьсмену-view.css")
 public class CloseShiftView extends HorizontalLayout {
 
-    private TextField name;
+    private TextField cashier;
+    private TextField inn;
     private Button sayHello;
 
     public CloseShiftView() {
         addClassName("закрытьсмену-view");
-        name = new TextField("Your name");
-        sayHello = new Button("Say hello");
-        add(name, sayHello);
-        setVerticalComponentAlignment(Alignment.END, name, sayHello);
+        cashier = new TextField("Your Cashier name");
+        inn = new TextField("Your inn (1203)");
+
+        sayHello = new Button("Закрыть смену");
+        add(cashier, inn, sayHello);
+        setVerticalComponentAlignment(Alignment.END, cashier, sayHello);
         sayHello.addClickListener(e -> {
-            Notification.show("Hello " + name.getValue());
+            OpenShift openShift = new OpenShift(cashier.getValue());
+            postShift(openShift);
         });
+    }
+
+    public void postShift(OpenShift openShift){
+        Gson gson = new Gson();
+        ApiConnecting apiConnecting = new ApiConnecting();
+        apiConnecting.postJson("http://10.0.0.153/api/1/shift/close",gson.toJson(openShift));
+
+        Notification.show("Смена закрыта " + inn.getValue() + " / "+ cashier.getValue());
+
     }
 
 }
