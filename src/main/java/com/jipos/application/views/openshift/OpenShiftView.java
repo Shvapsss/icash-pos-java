@@ -41,9 +41,9 @@ public class OpenShiftView extends HorizontalLayout {
     public void postShift(OpenShift openShift){
         Gson gson = new Gson();
         ApiConnecting apiConnecting = new ApiConnecting();
-        apiConnecting.postJson("http://10.0.0.153/api/1/shift/open",gson.toJson(openShift));
+        String s = apiConnecting.postJson("http://10.0.0.153/api/1/shift/open",gson.toJson(openShift));
 
-        Notification.show("Смена открыта " + inn.getValue() + " / "+ cashier.getValue());
+        Notification.show(s);
 
     }
 
