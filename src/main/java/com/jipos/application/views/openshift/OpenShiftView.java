@@ -1,6 +1,7 @@
 package com.jipos.application.views.openshift;
 
 import com.google.gson.Gson;
+import com.jipos.application.dto.OpenShift;
 import com.jipos.application.json.ApiConnecting;
 import com.jipos.application.views.main.MainView;
 import com.vaadin.flow.component.button.Button;
@@ -15,7 +16,7 @@ import com.vaadin.flow.component.dependency.CssImport;
 @Route(value = "open-shift", layout = MainView.class)
 @RouteAlias(value = "", layout = MainView.class)
 @PageTitle("Открыть смену")
-@CssImport("./views/открытьсмену/открытьсмену-view.css")
+@CssImport("./views/openshift/openshift-view.css")
 public class OpenShiftView extends HorizontalLayout {
 
     private TextField cashier;
@@ -23,7 +24,7 @@ public class OpenShiftView extends HorizontalLayout {
     private Button sayHello;
 
     public OpenShiftView() {
-        addClassName("открытьсмену-view");
+        addClassName("open-shift-view");
         cashier = new TextField("Your Cashier name");
         inn = new TextField("Your inn (1203)");
 

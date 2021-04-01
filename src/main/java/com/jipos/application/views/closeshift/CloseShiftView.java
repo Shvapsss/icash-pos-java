@@ -3,7 +3,7 @@ package com.jipos.application.views.closeshift;
 import com.google.gson.Gson;
 import com.jipos.application.json.ApiConnecting;
 import com.jipos.application.views.main.MainView;
-import com.jipos.application.views.openshift.OpenShift;
+import com.jipos.application.dto.OpenShift;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -14,7 +14,7 @@ import com.vaadin.flow.component.dependency.CssImport;
 
 @Route(value = "close-shift", layout = MainView.class)
 @PageTitle("Закрыть смену")
-@CssImport("./views/закрытьсмену/закрытьсмену-view.css")
+@CssImport("./views/closeshift/closeshift-view.css")
 public class CloseShiftView extends HorizontalLayout {
 
     private TextField cashier;
@@ -22,7 +22,7 @@ public class CloseShiftView extends HorizontalLayout {
     private Button sayHello;
 
     public CloseShiftView() {
-        addClassName("закрытьсмену-view");
+        addClassName("close-shift-view");
         cashier = new TextField("Your Cashier name");
         inn = new TextField("Your inn (1203)");
 
@@ -38,7 +38,7 @@ public class CloseShiftView extends HorizontalLayout {
     public void postShift(OpenShift openShift){
         Gson gson = new Gson();
         ApiConnecting apiConnecting = new ApiConnecting();
-        String s = apiConnecting.postJson("http://10.0.0.153/api/1/shift/open",gson.toJson(openShift));
+        String s = apiConnecting.postJson("http://10.0.0.153/api/1/shift/close",gson.toJson(openShift));
 
         Notification.show(s);
 
