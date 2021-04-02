@@ -1,6 +1,7 @@
 package com.jipos.application.data.entity;
 
 
+import com.google.gson.annotations.SerializedName;
 import com.jipos.application.data.AbstractEntity;
 
 import javax.persistence.Entity;
@@ -8,15 +9,16 @@ import javax.persistence.Entity;
 @Entity
 public class SampleProduct extends AbstractEntity {
 
-    private int calcMethodAttribute;
-    private int calcSubjectAttribute;
-    private String calcSubjectName;
-    private String unitSubjectCalculation;
-    private String priceIntoDiscountsMargins;
-    private String itemQuantity;
-    private int vatTaxRate;
-    private String vatAmountCalc;
-    private String calcSubjectIntoDiscountsMargins;
+    private String itemName; //T1030
+    private String itemQuantity; //T1023
+    private String priceIntoDiscountsMargins; //T1079
+    private int vatTaxRate;//T1199
+    private String unitSubjectCalculation; //T1197
+    private int calcMethodAttribute; //T1214
+    private int calcSubjectAttribute; //T1212
+    private String vatAmountCalc;//T1200
+    private String calcSubjectIntoDiscountsMargins;//T1043
+
 
     public int getCalcMethodAttribute() {
         return calcMethodAttribute;
@@ -34,12 +36,12 @@ public class SampleProduct extends AbstractEntity {
         this.calcSubjectAttribute = calcSubjectAttribute;
     }
 
-    public String getCalcSubjectName() {
-        return calcSubjectName;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setCalcSubjectName(String calcSubjectName) {
-        this.calcSubjectName = calcSubjectName;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
     public String getUnitSubjectCalculation() {

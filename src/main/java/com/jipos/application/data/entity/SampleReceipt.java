@@ -1,18 +1,18 @@
 package com.jipos.application.data.entity;
 
-import com.jipos.application.data.AbstractEntity;
-
 import javax.persistence.Entity;
 
+import com.jipos.application.data.AbstractEntity;
 @Entity
 public class SampleReceipt extends AbstractEntity {
 
-    private int calcAttribute;
-    private int taxSystem;
-    private int cashier;
-    private int amountReceipt;
-    private int amountCashReceipt;
-    private int amountElectronReceipt;
+    private int calcAttribute;                 //T1054
+    private int taxSystem;                     //T1055
+    private String cashier;                    //T1021
+    private String amountReceipt;              //T1020
+    private String amountCashReceipt;          //T1031
+    private String amountElectronReceipt;      //T1081
+
 
     public int getCalcAttribute() {
         return calcAttribute;
@@ -30,35 +30,35 @@ public class SampleReceipt extends AbstractEntity {
         this.taxSystem = taxSystem;
     }
 
-    public int getCashier() {
+    public String getCashier() {
         return cashier;
     }
 
-    public void setCashier(int cashier) {
+    public void setCashier(String cashier) {
         this.cashier = cashier;
     }
 
-    public int getAmountReceipt() {
+    public String getAmountReceipt() {
         return amountReceipt;
     }
 
-    public void setAmountReceipt(int amountReceipt) {
+    public void setAmountReceipt(String amountReceipt) {
         this.amountReceipt = amountReceipt;
     }
 
-    public int getAmountCashReceipt() {
+    public String getAmountCashReceipt() {
         return amountCashReceipt;
     }
 
-    public void setAmountCashReceipt(int amountCashReceipt) {
+    public void setAmountCashReceipt(String amountCashReceipt) {
         this.amountCashReceipt = amountCashReceipt;
     }
 
-    public int getAmountElectronReceipt() {
+    public String getAmountElectronReceipt() {
         return amountElectronReceipt;
     }
 
-    public void setAmountElectronReceipt(int amountElectronReceipt) {
+    public void setAmountElectronReceipt(String amountElectronReceipt) {
         this.amountElectronReceipt = amountElectronReceipt;
     }
 }

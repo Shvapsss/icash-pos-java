@@ -9,13 +9,13 @@ public class Receipt {
     @SerializedName("T1055")
     private int taxSystem;
     @SerializedName("T1021")
-    private int cashier;
+    private String cashier;
     @SerializedName("T1020")
-    private int amountReceipt;
+    private String amountReceipt;
     @SerializedName("T1031")
-    private int amountCashReceipt;
+    private String amountCashReceipt;
     @SerializedName("T1081")
-    private int amountElectronReceipt;
+    private String amountElectronReceipt;
 
     public int getCalcAttribute() {
         return calcAttribute;
@@ -33,35 +33,35 @@ public class Receipt {
         this.taxSystem = taxSystem;
     }
 
-    public int getCashier() {
+    public String getCashier() {
         return cashier;
     }
 
-    public void setCashier(int cashier) {
+    public void setCashier(String cashier) {
         this.cashier = cashier;
     }
 
-    public int getAmountReceipt() {
+    public String getAmountReceipt() {
         return amountReceipt;
     }
 
-    public void setAmountReceipt(int amountReceipt) {
+    public void setAmountReceipt(String amountReceipt) {
         this.amountReceipt = amountReceipt;
     }
 
-    public int getAmountCashReceipt() {
+    public String getAmountCashReceipt() {
         return amountCashReceipt;
     }
 
-    public void setAmountCashReceipt(int amountCashReceipt) {
+    public void setAmountCashReceipt(String amountCashReceipt) {
         this.amountCashReceipt = amountCashReceipt;
     }
 
-    public int getAmountElectronReceipt() {
+    public String getAmountElectronReceipt() {
         return amountElectronReceipt;
     }
 
-    public void setAmountElectronReceipt(int amountElectronReceipt) {
+    public void setAmountElectronReceipt(String amountElectronReceipt) {
         this.amountElectronReceipt = amountElectronReceipt;
     }
 }

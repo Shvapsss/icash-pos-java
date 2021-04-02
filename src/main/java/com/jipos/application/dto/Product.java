@@ -9,7 +9,7 @@ public class Product {
     @SerializedName("T1212")
     private int calcSubjectAttribute;
     @SerializedName("T1030")
-    private String calcSubjectName;
+    private String itemName;
     @SerializedName("T1197")
     private String unitSubjectCalculation;
     @SerializedName("T1079")
@@ -39,12 +39,12 @@ public class Product {
         this.calcSubjectAttribute = calcSubjectAttribute;
     }
 
-    public String getCalcSubjectName() {
-        return calcSubjectName;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setCalcSubjectName(String calcSubjectName) {
-        this.calcSubjectName = calcSubjectName;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
     public String getUnitSubjectCalculation() {

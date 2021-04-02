@@ -8,3 +8,10 @@
   margin-bottom: var(--lumo-space-l);
   margin-top: var(--lumo-space-m);
 }
+.product-dialog-style vaadin-text-field {
+    padding-right: 2px;
+}
+
+.product-dialog-style vaadin-button {
+    margin-right: 5px;
+}

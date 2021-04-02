@@ -1,6 +1,5 @@
 package com.jipos.application.data.service;
 
-import com.jipos.application.data.entity.SamplePerson;
 
 import com.jipos.application.data.entity.SampleReceipt;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -42,7 +42,7 @@ public class OpenShiftView extends HorizontalLayout {
     public void postShift(OpenShift openShift){
         Gson gson = new Gson();
         ApiConnecting apiConnecting = new ApiConnecting();
-        String s = apiConnecting.postJson("http://10.0.0.153/api/1/shift/open",gson.toJson(openShift));
+        String s = apiConnecting.postJson("http://5.134.218.202:7374/api/1/shift/open",gson.toJson(openShift));
 
         Notification.show(s);
 

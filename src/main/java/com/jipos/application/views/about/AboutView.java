@@ -22,7 +22,7 @@ public class AboutView extends Div {
         addClassName("about-view");
 
         ApiConnecting apiConnecting = new ApiConnecting();
-        String s = apiConnecting.getJson("http://10.0.0.153/api/1/status");
+        String s = apiConnecting.getJson("http://5.134.218.202:7374/api/1/status");
         //String s = apiConnecting.getJson("http://10.0.0.153/api/1/getallinfo");
 
 
