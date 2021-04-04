@@ -2,6 +2,7 @@ package com.jipos.application.data.entity;
 
 
 import com.jipos.application.data.AbstractEntity;
+import com.jipos.application.data.VatEnum;
 
 import javax.persistence.Entity;
 import java.util.List;
@@ -32,7 +33,7 @@ public class SampleProduct extends AbstractEntity {
     private String priceIntoDiscountsMargins;       //T1079 *
     private String itemQuantity;                    //T1023 *
     private String T1229;                          //T1229
-    private int vatTaxRate;                         //T1199 *
+    private VatEnum vatTaxRate;                         //T1199 *
     private String vatAmountCalc;                   //T1200 *
     private String calcSubjectIntoDiscountsMargins; //T1043 *
     private String T1191;                           //T1191
@@ -207,11 +208,11 @@ public class SampleProduct extends AbstractEntity {
         T1229 = t1229;
     }
 
-    public int getVatTaxRate() {
+    public VatEnum getVatTaxRate() {
         return vatTaxRate;
     }
 
-    public void setVatTaxRate(int vatTaxRate) {
+    public void setVatTaxRate(VatEnum vatTaxRate) {
         this.vatTaxRate = vatTaxRate;
     }
 
