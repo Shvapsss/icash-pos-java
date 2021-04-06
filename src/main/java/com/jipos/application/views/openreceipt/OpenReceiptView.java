@@ -55,8 +55,9 @@ public class OpenReceiptView extends Div {
         amountCashReceipt.isRequired();
         amountElectronReceipt.isRequired();
         calcAttribute.setItems(Arrays.asList(CalculationAttributeEnum.values()));
+        calcAttribute.setValue(CalculationAttributeEnum.ONE);
         taxSystem.setItems(Arrays.asList(TaxSystemEnum.values()));
-
+        taxSystem.setValue(TaxSystemEnum.ONE);
         //T1059 = grid
         Grid grid = createMainProductGrid();
         List<SampleProduct> products = new ArrayList<>();
@@ -97,7 +98,7 @@ public class OpenReceiptView extends Div {
 //            Notification.show(binder.getBean().getClass().getSimpleName() + " details stored.");
 //            clearForm();
             products.forEach(product -> Notification.show(
-                    product.getItemName()));
+                    product.getT1030()));
             Notification.show("Отправить чек на печать");
         });
         addButton.addClickListener(e -> {
@@ -154,10 +155,11 @@ public class OpenReceiptView extends Div {
     private Grid createMainProductGrid() {
         Grid<SampleProduct> grid = new Grid<>();
         //grid.setColumns("itemName", "itemQuantity", "priceIntoDiscountsMargins", "vatTaxRate");
-        grid.addColumn(SampleProduct::getItemName).setHeader("Продукт");
-        grid.addColumn(SampleProduct::getItemQuantity).setHeader("Количество");
-        grid.addColumn(SampleProduct::getVatTaxRate).setHeader("НДС");
-        grid.addColumn(SampleProduct::getPriceIntoDiscountsMargins).setHeader("Цена");
+        grid.addColumn(SampleProduct::getT1030).setHeader("Продукт");
+        grid.addColumn(SampleProduct::getT1023).setHeader("Количество");
+        grid.addColumn(SampleProduct::getT1199).setHeader("НДС");
+        grid.addColumn(SampleProduct::getT1079).setHeader("Цена");
+        grid.addColumn(SampleProduct::getT1043).setHeader("Сумма");
         // Or you can use an ordinary function to setup the component
         grid.addComponentColumn(item -> createRemoveButton(grid, item))
                 .setHeader("Действие");

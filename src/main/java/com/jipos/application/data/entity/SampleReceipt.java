@@ -4,21 +4,19 @@ import javax.persistence.Entity;
 
 import com.jipos.application.data.AbstractEntity;
 
-import java.util.List;
-
 @Entity
 public class SampleReceipt extends AbstractEntity {
 
-    private int calcAttribute;                              //T1054 * int Enum
-    private int taxSystem;                                  //T1055 * int Enum
+    private int T1054;                                      //T1054 * int Enum
+    private int T1055;                                      //T1055 * int Enum
     private String T1227;                                   //T1227 - String
     private String T1228;                                   //T1228  - String
     private String T1008;                                   //T1008  - String
     private String T1036;                                   //T1036  - String
     //private List<String> T1059;                                   //T1059 (* one ++) --> SampleProduct {massive}
-    private String amountReceipt;                           //T1020 *  - String
-    private String amountCashReceipt;                       //T1031 *  - String
-    private String amountElectronReceipt;                   //T1081 *  - String
+    private String T1020;                                   //T1020 *  - String
+    private String T1031;                                   //T1031 *  - String
+    private String T1081;                                   //T1081 *  - String
     private String T1215;                                   //T1215 - String
     private String T1216;                                   //T1216 - String
     private String T1217;                                   //T1217 - String
@@ -41,9 +39,17 @@ public class SampleReceipt extends AbstractEntity {
     private String T1084;                                   //T1084
     private String T1085;                                   //T1085
     private String T1086;                                   //T1086
-    private String cashier;                                 //T1021 *    - String
+    private String T1021;                                 //T1021 *    - String
     private String T1203;                                   //T1203      - String
 
+    public SampleReceipt(int t1054, int t1055, String t1020, String t1031, String t1081, String t1021) {
+        T1054 = t1054;
+        T1055 = t1055;
+        T1020 = t1020;
+        T1031 = t1031;
+        T1081 = t1081;
+        T1021 = t1021;
+    }
 
     public String getT1227() {
         return T1227;
@@ -261,51 +267,51 @@ public class SampleReceipt extends AbstractEntity {
         T1203 = t1203;
     }
 
-    public int getCalcAttribute() {
-        return calcAttribute;
+    public int getT1054() {
+        return T1054;
     }
 
-    public void setCalcAttribute(int calcAttribute) {
-        this.calcAttribute = calcAttribute;
+    public void setT1054(int t1054) {
+        this.T1054 = t1054;
     }
 
-    public int getTaxSystem() {
-        return taxSystem;
+    public int getT1055() {
+        return T1055;
     }
 
-    public void setTaxSystem(int taxSystem) {
-        this.taxSystem = taxSystem;
+    public void setT1055(int t1055) {
+        this.T1055 = t1055;
     }
 
-    public String getCashier() {
-        return cashier;
+    public String getT1021() {
+        return T1021;
     }
 
-    public void setCashier(String cashier) {
-        this.cashier = cashier;
+    public void setT1021(String t1021) {
+        this.T1021 = t1021;
     }
 
-    public String getAmountReceipt() {
-        return amountReceipt;
+    public String getT1020() {
+        return T1020;
     }
 
-    public void setAmountReceipt(String amountReceipt) {
-        this.amountReceipt = amountReceipt;
+    public void setT1020(String t1020) {
+        this.T1020 = t1020;
     }
 
-    public String getAmountCashReceipt() {
-        return amountCashReceipt;
+    public String getT1031() {
+        return T1031;
     }
 
-    public void setAmountCashReceipt(String amountCashReceipt) {
-        this.amountCashReceipt = amountCashReceipt;
+    public void setT1031(String t1031) {
+        this.T1031 = t1031;
     }
 
-    public String getAmountElectronReceipt() {
-        return amountElectronReceipt;
+    public String getT1081() {
+        return T1081;
     }
 
-    public void setAmountElectronReceipt(String amountElectronReceipt) {
-        this.amountElectronReceipt = amountElectronReceipt;
+    public void setT1081(String t1081) {
+        this.T1081 = t1081;
     }
 }

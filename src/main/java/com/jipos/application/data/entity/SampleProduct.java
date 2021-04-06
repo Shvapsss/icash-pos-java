@@ -5,13 +5,12 @@ import com.jipos.application.data.AbstractEntity;
 import com.jipos.application.data.VatEnum;
 
 import javax.persistence.Entity;
-import java.util.List;
 
 @Entity
 public class SampleProduct extends AbstractEntity {
     //Основные теги
-    private int calcMethodAttribute;                //T1214 *
-    private int calcSubjectAttribute;               //T1212 *
+    private int T1214;                              //T1214 *
+    private int T1212;                              //T1212 *
     private int T1222;                              //T1222 - int ENUM 7
     //private List<String> T1223;                     //T1223 {}
     private String T1073;                                //T1073 - String
@@ -25,33 +24,43 @@ public class SampleProduct extends AbstractEntity {
     private String T1171;                                //T1171 - String
     private String T1225;                                //T1225 - String
     private String T1226;                           //T1226
-    private String itemName;                        //T1030 *
-    private String unitSubjectCalculation;          //T1197 *
+    private String T1030;                           //T1030 *
+    private String T1197;                           //T1197 *
     private int T1162;                              //T1162 INT + ENUM
     private String T1230;                           //T1230
     private String T1231;                           //T1231
-    private String priceIntoDiscountsMargins;       //T1079 *
-    private String itemQuantity;                    //T1023 *
+    private String T1079;                           //T1079 *
+    private String T1023;                           //T1023 *
     private String T1229;                          //T1229
-    private VatEnum vatTaxRate;                         //T1199 *
-    private String vatAmountCalc;                   //T1200 *
-    private String calcSubjectIntoDiscountsMargins; //T1043 *
+    private VatEnum T1199;                         //T1199 *
+    private String T1200;                           //T1200 *
+    private String T1043;                           //T1043 *
     private String T1191;                           //T1191
 
-    public int getCalcMethodAttribute() {
-        return calcMethodAttribute;
+    public SampleProduct(String t1030, String t1079, String t1023, VatEnum t1199, String t1043) {
+//        T1214 = t1214;
+//        T1212 = t1212;
+        T1030 = t1030;
+        T1079 = t1079;
+        T1023 = t1023;
+        T1199 = t1199;
+        T1043 = t1043;
     }
 
-    public void setCalcMethodAttribute(int calcMethodAttribute) {
-        this.calcMethodAttribute = calcMethodAttribute;
+    public int getT1214() {
+        return T1214;
     }
 
-    public int getCalcSubjectAttribute() {
-        return calcSubjectAttribute;
+    public void setT1214(int t1214) {
+        this.T1214 = t1214;
     }
 
-    public void setCalcSubjectAttribute(int calcSubjectAttribute) {
-        this.calcSubjectAttribute = calcSubjectAttribute;
+    public int getT1212() {
+        return T1212;
+    }
+
+    public void setT1212(int t1212) {
+        this.T1212 = t1212;
     }
 
     public int getT1222() {
@@ -144,20 +153,20 @@ public class SampleProduct extends AbstractEntity {
         T1226 = t1226;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getT1030() {
+        return T1030;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setT1030(String t1030) {
+        this.T1030 = t1030;
     }
 
-    public String getUnitSubjectCalculation() {
-        return unitSubjectCalculation;
+    public String getT1197() {
+        return T1197;
     }
 
-    public void setUnitSubjectCalculation(String unitSubjectCalculation) {
-        this.unitSubjectCalculation = unitSubjectCalculation;
+    public void setT1197(String t1197) {
+        this.T1197 = t1197;
     }
 
     public int getT1162() {
@@ -184,20 +193,20 @@ public class SampleProduct extends AbstractEntity {
         T1231 = t1231;
     }
 
-    public String getPriceIntoDiscountsMargins() {
-        return priceIntoDiscountsMargins;
+    public String getT1079() {
+        return T1079;
     }
 
-    public void setPriceIntoDiscountsMargins(String priceIntoDiscountsMargins) {
-        this.priceIntoDiscountsMargins = priceIntoDiscountsMargins;
+    public void setT1079(String t1079) {
+        this.T1079 = t1079;
     }
 
-    public String getItemQuantity() {
-        return itemQuantity;
+    public String getT1023() {
+        return T1023;
     }
 
-    public void setItemQuantity(String itemQuantity) {
-        this.itemQuantity = itemQuantity;
+    public void setT1023(String t1023) {
+        this.T1023 = t1023;
     }
 
     public String getT1229() {
@@ -208,28 +217,28 @@ public class SampleProduct extends AbstractEntity {
         T1229 = t1229;
     }
 
-    public VatEnum getVatTaxRate() {
-        return vatTaxRate;
+    public VatEnum getT1199() {
+        return T1199;
     }
 
-    public void setVatTaxRate(VatEnum vatTaxRate) {
-        this.vatTaxRate = vatTaxRate;
+    public void setT1199(VatEnum t1199) {
+        this.T1199 = t1199;
     }
 
-    public String getVatAmountCalc() {
-        return vatAmountCalc;
+    public String getT1200() {
+        return T1200;
     }
 
-    public void setVatAmountCalc(String vatAmountCalc) {
-        this.vatAmountCalc = vatAmountCalc;
+    public void setT1200(String t1200) {
+        this.T1200 = t1200;
     }
 
-    public String getCalcSubjectIntoDiscountsMargins() {
-        return calcSubjectIntoDiscountsMargins;
+    public String getT1043() {
+        return T1043;
     }
 
-    public void setCalcSubjectIntoDiscountsMargins(String calcSubjectIntoDiscountsMargins) {
-        this.calcSubjectIntoDiscountsMargins = calcSubjectIntoDiscountsMargins;
+    public void setT1043(String t1043) {
+        this.T1043 = t1043;
     }
 
     public String getT1191() {

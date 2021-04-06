@@ -1,7 +1,6 @@
 package com.jipos.application.views.openreceipt;
 
 import com.jipos.application.data.AgentDataEnum;
-import com.jipos.application.data.AgentEnum;
 import com.jipos.application.data.VatEnum;
 import com.jipos.application.data.entity.SampleProduct;
 import com.vaadin.flow.component.Component;
@@ -44,10 +43,12 @@ public class OpenReceiptAddProductDialog {
         page2.setVisible(false);
 
         TextField product = new TextField("Продукт:");
+        product.isRequired();
         TextField quantity = new TextField("Количество:", event -> {
             //TODO
             // сделать расчет суммы     summ
         });
+        quantity.isRequired();
         ComboBox<VatEnum> vat = new ComboBox<>();
         vat.setItems(Arrays.asList(VatEnum.values()));
         vat.setValue(VatEnum.ONE);
@@ -56,17 +57,14 @@ public class OpenReceiptAddProductDialog {
             // сделать расчет суммы     summ
 
         });
+        price.isRequired();
 //        TextField sum = new TextField("Сумма:");
 //        sum.setEnabled(false);
 
 
         Button confirmButton = new Button("Добавить", event -> {
-            SampleProduct sampleProduct = new SampleProduct();
-            sampleProduct.setItemName(product.getValue());
-            sampleProduct.setItemQuantity(quantity.getValue());
-            sampleProduct.setPriceIntoDiscountsMargins(price.getValue());
-            sampleProduct.setVatTaxRate(vat.getValue());
-
+            String summ = String.valueOf(Double.parseDouble(quantity.getValue()) * Double.parseDouble(price.getValue()));
+            SampleProduct sampleProduct = new SampleProduct(product.getValue(),price.getValue(),quantity.getValue(),vat.getValue(),summ);
 
             products.add(sampleProduct);
             grid.setItems(products);
@@ -108,8 +106,6 @@ public class OpenReceiptAddProductDialog {
         FormLayout formAdditionallyLayout = new FormLayout();
         NumberField T1222= new NumberField("T1222");
 
-
-
         //TextField T1223= new TextField("T1223"); // LIST
         TextField T1073= new TextField("T1073"); //T1223A и T1223B Телефон платежного агента
         TextField T1074= new TextField("T1074"); //T1223A Телефон оператора по приему платежей
@@ -124,7 +120,7 @@ public class OpenReceiptAddProductDialog {
         TextField T1225= new TextField("T1225"); //Наименование поставщика.
 
 
-        ComboBox<AgentDataEnum> t1223T1224 = new ComboBox<>("T1057");
+        ComboBox<AgentDataEnum> t1223T1224 = new ComboBox<>("T1223 / T1224");
         t1223T1224.setItems(Arrays.asList(AgentDataEnum.values()));
         t1223T1224.addValueChangeListener(event -> {
             if(event.getValue() == AgentDataEnum.T1224){
