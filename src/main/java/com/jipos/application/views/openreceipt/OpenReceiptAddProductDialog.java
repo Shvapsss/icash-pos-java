@@ -64,7 +64,7 @@ public class OpenReceiptAddProductDialog {
 
         Button confirmButton = new Button("Добавить", event -> {
             String summ = String.valueOf(Double.parseDouble(quantity.getValue()) * Double.parseDouble(price.getValue()));
-            SampleProduct sampleProduct = new SampleProduct(product.getValue(),price.getValue(),quantity.getValue(),vat.getValue(),summ);
+            SampleProduct sampleProduct = new SampleProduct(product.getValue(),price.getValue(),quantity.getValue(),vat.getValue().getId(),summ);
 
             products.add(sampleProduct);
             grid.setItems(products);

@@ -1,15 +1,17 @@
 package com.jipos.application.views.about;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.jipos.application.dto.FiscalAccumulator;
-import com.jipos.application.json.ApiConnecting;
-import com.vaadin.flow.component.Text;
+
+import com.jipos.application.data.entity.UserConfig;
+import com.jipos.application.data.service.UserConfigRepository;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;
 import com.jipos.application.views.main.MainView;
 import com.vaadin.flow.component.dependency.CssImport;
+
 
 import java.io.IOException;
 
@@ -17,23 +19,38 @@ import java.io.IOException;
 @PageTitle("About")
 @CssImport("./views/about/about-view.css")
 public class AboutView extends Div {
-
-    public AboutView() throws IOException {
+    public AboutView(UserConfigRepository userRepo) throws IOException {
         addClassName("about-view");
 
-        ApiConnecting apiConnecting = new ApiConnecting();
-        String s = apiConnecting.getJson("http://5.134.218.202:7374/api/1/status");
-        //String s = apiConnecting.getJson("http://10.0.0.153/api/1/getallinfo");
+        TextField url = new TextField("URL:");
+        Button save = new Button("Save");
+
+        url.setValue(userRepo.findById("URL").orElse(new UserConfig()).getValue());
 
 
-        GsonBuilder builder = new GsonBuilder();
-        builder.setPrettyPrinting();
-        Gson gson = builder.create();
-        FiscalAccumulator fiscalAccumulator = gson.fromJson(s, FiscalAccumulator.class);
+        save.addClickListener(event ->
+                {
+                    UserConfig userConfig = new UserConfig();
+                    userConfig.setKey("URL");
+                    userConfig.setValue(url.getValue());
+                    userRepo.save(userConfig);
+                    Notification.show(url.getValue()+" сохранен в базу.");
+                });
+//
+//        ApiConnecting apiConnecting = new ApiConnecting();
+//        String s = apiConnecting.getJson("http://5.134.218.202:7374/api/1/status");
+//        //String s = apiConnecting.getJson("http://10.0.0.153/api/1/getallinfo");
+//
+//
+//        GsonBuilder builder = new GsonBuilder();
+//        builder.setPrettyPrinting();
+//        Gson gson = builder.create();
+//        FiscalAccumulator fiscalAccumulator = gson.fromJson(s, FiscalAccumulator.class);
+//
+//
 
-        
-
-        add(new Text(fiscalAccumulator.toString()));
+//        add(new Text(fiscalAccumulator.toString()));
+        add(url,save);
     }
 
 }

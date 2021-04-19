@@ -1,10 +1,11 @@
 package com.jipos.application.views.openreceipt;
 
+import com.google.gson.Gson;
 import com.jipos.application.data.CalculationAttributeEnum;
 import com.jipos.application.data.TaxSystemEnum;
 import com.jipos.application.data.entity.SampleProduct;
 import com.jipos.application.data.AgentEnum;
-import com.jipos.application.data.service.SampleReceiptService;
+import com.jipos.application.data.entity.SampleReceipt;
 import com.jipos.application.views.main.MainView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
@@ -31,14 +32,43 @@ import java.util.*;
 @CssImport("./views/openreceipt/openreceipt-view.css")
 public class OpenReceiptView extends Div {
 
-    private ComboBox<CalculationAttributeEnum> calcAttribute = new ComboBox<>();
-    private ComboBox<TaxSystemEnum> taxSystem = new ComboBox<>();
+    private ComboBox<CalculationAttributeEnum> t1054 = new ComboBox<>();
+    private ComboBox<TaxSystemEnum> t1055 = new ComboBox<>();
 
-    private TextField cashier= new TextField("Кассир");
-    private TextField amountReceipt= new TextField("Сумма чека");
-    private TextField amountCashReceipt= new TextField("Сумма чека наличными");
-    private TextField amountElectronReceipt = new TextField("Сумма чека электронными");
+    private TextField t1021 = new TextField("Кассир");
+    private TextField t1020 = new TextField("Сумма чека");
+    private TextField t1031 = new TextField("Сумма чека наличными");
+    private TextField t1081 = new TextField("Сумма чека электронными");
 
+
+    ///DOPOLNITELNO
+    TextField t1227 = new TextField("T1227");
+    TextField t1228 = new TextField("T1228");
+    TextField t1008 = new TextField("T1008");
+    TextField t1036 = new TextField("T1036");
+    TextField t1215 = new TextField("T1215");
+    TextField t1216 = new TextField("T1216");
+    TextField t1217 = new TextField("T1217");
+    TextField t1102 = new TextField("T1102");
+    TextField t1103 = new TextField("T1103");
+    TextField t1104 = new TextField("T1104");
+    TextField t1105 = new TextField("T1105");
+    TextField t1106 = new TextField("T1106");
+    TextField t1107 = new TextField("T1107");
+    ComboBox<AgentEnum> t1057 = new ComboBox<>("T1057");
+    TextField t1075 = new TextField("T1075");
+    TextField t1044 = new TextField("T1044");
+    TextField t1073 = new TextField("T1073");
+    TextField t1074 = new TextField("T1074");
+    TextField t1026 = new TextField("T1026");
+    TextField t1005 = new TextField("T1005");
+    TextField t1016 = new TextField("T1016");
+    TextField t1171 = new TextField("T1171");
+    TextField t1192 = new TextField("T1192");
+    TextField t1084 = new TextField("T1084");
+    TextField t1085 = new TextField("T1085");
+    TextField t1086 = new TextField("T1086");
+    TextField t1203 = new TextField("T1203");
 
 //    private Button cancel = new Button("Cancel");
     private Button addButton = new Button("Добавить продукт");
@@ -46,18 +76,19 @@ public class OpenReceiptView extends Div {
 
 //    private Binder<SampleReceipt> binder = new Binder(SampleReceipt.class);
 
-    public OpenReceiptView(SampleReceiptService receiptService) {
+//    public OpenReceiptView(SampleReceiptService receiptService) {
+    public OpenReceiptView() {
         addClassName("openreceipt-view");
-        calcAttribute.isRequired();
-        taxSystem.isRequired();
-        cashier.isRequired();
-        amountReceipt.isRequired();
-        amountCashReceipt.isRequired();
-        amountElectronReceipt.isRequired();
-        calcAttribute.setItems(Arrays.asList(CalculationAttributeEnum.values()));
-        calcAttribute.setValue(CalculationAttributeEnum.ONE);
-        taxSystem.setItems(Arrays.asList(TaxSystemEnum.values()));
-        taxSystem.setValue(TaxSystemEnum.ONE);
+        t1054.isRequired();
+        t1055.isRequired();
+        t1021.isRequired();
+        t1020.isRequired();
+        t1031.isRequired();
+        t1081.isRequired();
+        t1054.setItems(Arrays.asList(CalculationAttributeEnum.values()));
+        t1054.setValue(CalculationAttributeEnum.ONE);
+        t1055.setItems(Arrays.asList(TaxSystemEnum.values()));
+        t1055.setValue(TaxSystemEnum.ONE);
         //T1059 = grid
         Grid grid = createMainProductGrid();
         List<SampleProduct> products = new ArrayList<>();
@@ -97,6 +128,7 @@ public class OpenReceiptView extends Div {
 //            receiptService.update(binder.getBean());
 //            Notification.show(binder.getBean().getClass().getSimpleName() + " details stored.");
 //            clearForm();
+            String json = getJson(products);
             products.forEach(product -> Notification.show(
                     product.getT1030()));
             Notification.show("Отправить чек на печать");
@@ -113,39 +145,17 @@ public class OpenReceiptView extends Div {
 
     ////Work in grid
     ////grid.setItems(products);
+    private String getJson(List<SampleProduct> products){
+        SampleReceipt sampleReceipt = new SampleReceipt(t1054.getValue().getId(),t1055.getValue().getId(),t1020.getTitle(),t1031.getTitle(),t1081.getTitle(),t1021.getTitle());
 
+        sampleReceipt.setT1059(products);
+        Gson gson = new Gson();
+        return gson.toJson(sampleReceipt);
+    }
     private Component addAdditionallyReceipt(){
         FormLayout formAdditionallyLayout = new FormLayout();
-        TextField T1227= new TextField("T1227");
-        TextField T1228= new TextField("T1228");
-        TextField T1008= new TextField("T1008");
-        TextField T1036= new TextField("T1036");
-        TextField T1215= new TextField("T1215");
-        TextField T1216= new TextField("T1216");
-        TextField T1217= new TextField("T1217");
-        TextField T1102= new TextField("T1102");
-        TextField T1103= new TextField("T1103");
-        TextField T1104= new TextField("T1104");
-        TextField T1105= new TextField("T1105");
-        TextField T1106= new TextField("T1106");
-        TextField T1107= new TextField("T1107");
-        ComboBox<AgentEnum> T1057 = new ComboBox<>("T1057");
-        T1057.setItems(Arrays.asList(AgentEnum.values()));
-        TextField T1075= new TextField("T1075");
-        TextField T1044= new TextField("T1044");
-        TextField T1073= new TextField("T1073");
-        TextField T1074= new TextField("T1074");
-        TextField T1026= new TextField("T1026");
-        TextField T1005= new TextField("T1005");
-        TextField T1016= new TextField("T1016");
-        TextField T1171= new TextField("T1171");
-        TextField T1192= new TextField("T1192");
-        TextField T1084= new TextField("T1084");
-        TextField T1085= new TextField("T1085");
-        TextField T1086= new TextField("T1086");
-        TextField T1203= new TextField("T1203");
-
-        formAdditionallyLayout.add(T1227, T1228, T1008, T1036, T1215, T1216,T1217,T1102,T1103,T1104,T1105,T1106,T1057,T1075,T1044,T1073,T1074,T1026,T1005,T1016,T1171,T1192,T1084,T1085,T1086,T1203);
+        t1057.setItems(Arrays.asList(AgentEnum.values()));
+        formAdditionallyLayout.add(t1227, t1228, t1008, t1036, t1215, t1216, t1217, t1102, t1103, t1104, t1105, t1106, t1107, t1057, t1075, t1044, t1073, t1074, t1026, t1005, t1016, t1171, t1192, t1084, t1085, t1086, t1203);
         return formAdditionallyLayout;
     }
 
@@ -168,7 +178,7 @@ public class OpenReceiptView extends Div {
 
     private Component createFormLayout() {
         FormLayout formLayout = new FormLayout();
-        formLayout.add(calcAttribute, taxSystem, cashier, amountReceipt, amountCashReceipt, amountElectronReceipt);
+        formLayout.add(t1054, t1055, t1021, t1020, t1031, t1081);
         return formLayout;
     }
 

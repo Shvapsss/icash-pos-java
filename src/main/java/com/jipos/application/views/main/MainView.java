@@ -24,8 +24,6 @@ import com.jipos.application.views.openshift.OpenShiftView;
 import com.jipos.application.views.openreceipt.OpenReceiptView;
 import com.jipos.application.views.closeshift.CloseShiftView;
 import com.jipos.application.views.cardlist.CardListView;
-import com.jipos.application.views.masterdetail.MasterDetailView;
-import com.jipos.application.views.addressform.AddressFormView;
 import com.jipos.application.views.creditcardform.CreditCardFormView;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.CssImport;
@@ -91,8 +89,8 @@ public class MainView extends AppLayout {
         return new Tab[]{createTab("Открыть смену", OpenShiftView.class),
                 createTab("Кассовый чек (БСО)", OpenReceiptView.class),
                 createTab("Закрыть смену", CloseShiftView.class), createTab("About", AboutView.class),
-                createTab("Card List", CardListView.class), createTab("Master-Detail", MasterDetailView.class),
-                createTab("Address Form", AddressFormView.class),
+//                createTab("Card List", CardListView.class), createTab("Master-Detail", MasterDetailView.class),
+//                createTab("Address Form", AddressFormView.class),
                 createTab("Credit Card Form", CreditCardFormView.class), createTab("Map", MapView.class)};
     }
 

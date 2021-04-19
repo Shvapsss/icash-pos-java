@@ -1,14 +1,13 @@
 package com.jipos.application.data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 
-@MappedSuperclass
+import org.springframework.data.annotation.Id;
+
+//@MappedSuperclass
 public abstract class AbstractEntity {
 
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     private Integer id;
 
     public Integer getId() {

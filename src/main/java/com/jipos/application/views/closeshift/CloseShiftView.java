@@ -20,8 +20,11 @@ public class CloseShiftView extends HorizontalLayout {
     private TextField cashier;
     private TextField inn;
     private Button sayHello;
+    private ApiConnecting apiConnecting;
 
-    public CloseShiftView() {
+    public CloseShiftView(ApiConnecting apiConnecting) {
+        this.apiConnecting = apiConnecting;
+
         addClassName("close-shift-view");
         cashier = new TextField("Your Cashier name");
         inn = new TextField("Your inn (1203)");
@@ -37,8 +40,8 @@ public class CloseShiftView extends HorizontalLayout {
 
     public void postShift(OpenShift openShift){
         Gson gson = new Gson();
-        ApiConnecting apiConnecting = new ApiConnecting();
-        String s = apiConnecting.postJson("http://10.0.0.153/api/1/shift/close",gson.toJson(openShift));
+//        ApiConnecting apiConnecting = new ApiConnecting();
+        String s = apiConnecting.postJson("/api/1/shift/close",gson.toJson(openShift));
 
         Notification.show(s);
 

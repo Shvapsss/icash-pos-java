@@ -1,17 +1,25 @@
 package com.jipos.application.json;
 
+import com.vaadin.flow.spring.annotation.SpringComponent;
+import com.vaadin.flow.spring.annotation.UIScope;
+import org.springframework.beans.factory.annotation.Value;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+@SpringComponent
+@UIScope
 public class ApiConnecting {
     private String result;
+    @Value("${baseUrl}")
+    private String baseUrl;
 
     public String postJson(String url, String content) {
 
         try{
-            HttpURLConnection connection = connection(url,"POST",true);
+            HttpURLConnection connection = connection(baseUrl+url,"POST",true);
 
             OutputStream out = connection.getOutputStream();
             out.write(content.getBytes(StandardCharsets.UTF_8));
@@ -40,7 +48,7 @@ public class ApiConnecting {
     }
     public String getJson(String url) throws IOException {
         try {
-        HttpURLConnection connection = connection(url,"GET",false);
+        HttpURLConnection connection = connection(baseUrl+url,"GET",false);
         StringBuilder s = new StringBuilder();
         if (HttpURLConnection.HTTP_OK == connection.getResponseCode()) {
             BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));

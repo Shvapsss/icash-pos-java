@@ -22,8 +22,11 @@ public class OpenShiftView extends HorizontalLayout {
     private TextField cashier;
     private TextField inn;
     private Button sayHello;
+    private ApiConnecting apiConnecting;
 
-    public OpenShiftView() {
+    public OpenShiftView(ApiConnecting apiConnecting) {
+        this.apiConnecting = apiConnecting;
+
         addClassName("open-shift-view");
         cashier = new TextField("Your Cashier name");
         inn = new TextField("Your inn (1203)");
@@ -41,8 +44,9 @@ public class OpenShiftView extends HorizontalLayout {
 
     public void postShift(OpenShift openShift){
         Gson gson = new Gson();
-        ApiConnecting apiConnecting = new ApiConnecting();
-        String s = apiConnecting.postJson("http://5.134.218.202:7374/api/1/shift/open",gson.toJson(openShift));
+//        ApiConnecting apiConnecting = new ApiConnecting();
+
+        String s = apiConnecting.postJson("/api/1/shift/open",gson.toJson(openShift));
 
         Notification.show(s);
 
